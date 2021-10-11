@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rafi/second_page.dart';
 
 void main() {
   runApp(AmarApp());
@@ -42,6 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: Column(
             children: [
+              RaisedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute
+                  (builder: (context)=>SecondPage()));
+              }),
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: RaisedButton(
