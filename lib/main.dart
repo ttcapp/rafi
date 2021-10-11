@@ -1,19 +1,19 @@
-
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(const MyApp());
-
+void main() {
+  runApp(AmarApp());
 }
-String btnText="Button 1";
-String btnText2="Button 2";
-String btnText3="Button 3";
 
-Color btnClr1= Colors.indigo;
-Color btnClr2= Colors.black87;
-Color btnClr3= Colors.teal;
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+String btnText1="Tap Button";
+Color btnColor1= Colors.white;
+bool imgVisibility= false;
+String img1Src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg";
+double imgHeight=200;
+double imgWidth=250;
+
+
+class AmarApp extends StatelessWidget {
+  const AmarApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -35,46 +34,106 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         centerTitle: true,
-        title: Text("My Frist App"),
+        title: Text("Rafi"),
       ),
-      body: Container(
-        child: Align(
-          alignment: Alignment.center,
+      body: SingleChildScrollView(
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RaisedButton(
-                  child: Text(btnText,style: TextStyle(color: Colors.white),),
-                  color: btnClr1,
-                  onPressed: (){
-                    setState(() {
-                      btnClr1=Colors.orangeAccent;
-                      btnText="Button Pressed";
-                    });
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: RaisedButton(
+                    color: btnColor1,
+                    child: Text(btnText1,style:
+                    TextStyle(color: Colors.green, fontWeight: FontWeight.bold,fontSize: 30),),
+                    onPressed: (){
+                      setState(() {
+                        btnText1="Button Pressed";
+                        btnColor1=Colors.orange;
+                        imgVisibility=true;
+                      });
+                    }),
+              ),
+              Visibility(
+                  visible: imgVisibility,
+                  child:
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                             border: Border.all(
+                               color: Colors.tealAccent,
+                               width: 5
+                             )
+                            ),
 
-                  }),
-              RaisedButton(
-                  child: Text(btnText2,style: TextStyle(color: Colors.white),),
-                  color: btnClr2,
-                  onPressed: (){
-                    setState(() {
-                      btnClr2=Colors.grey;
-                      btnText2="Hi";
-                    });
+                            height: imgHeight,
+                              width: imgWidth,
+                              child: Image.network(img1Src,
+                                fit: BoxFit.cover,)
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.tealAccent,
+                                      width: 5
+                                  )
+                              ),
 
-                  }),
-              RaisedButton(
-                  child: Text(btnText3,style: TextStyle(color: Colors.white),),
-                  color: btnClr3,
-                  onPressed: (){
-                    setState(() {
-                      btnClr3=Colors.pink;
-                      btnText3="I am RAFI";
-                    });
+                              height: imgHeight,
+                              width: imgWidth,
+                              child: Image.network(img1Src,
+                                fit: BoxFit.cover,)
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.tealAccent,
+                                      width: 5
+                                  )
+                              ),
 
-                  }),
+                              height: imgHeight,
+                              width: imgWidth,
+                              child: Image.network(img1Src,
+                                fit: BoxFit.cover,)
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.tealAccent,
+                                      width: 5
+                                  )
+                              ),
+
+                              height: imgHeight,
+                              width: imgWidth,
+                              child: Image.network(img1Src,
+                                fit: BoxFit.cover,)
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+              ),
+
+
+
             ],
           ),
         ),
@@ -82,3 +141,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
