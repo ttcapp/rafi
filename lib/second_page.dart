@@ -14,6 +14,14 @@ class _SecondPageState extends State<SecondPage> {
       appBar: AppBar(
         title: Text("Second page"),
       ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Image.asset("assets/images/img2.jpg",
+          fit: BoxFit.fill,),
+
+
+
+      ),
     );
   }
 }
