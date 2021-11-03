@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rafi/demo_page.dart';
 import 'package:rafi/log_in.dart';
 import 'package:slide_drawer/slide_drawer.dart';
 import 'package:rafi/second_page.dart';
@@ -18,11 +19,13 @@ double conHeith=50;
 double conWidth=50;
 
 class AmarApp extends StatelessWidget {
-  const AmarApp({Key? key}) : super(key: key);
+   AmarApp({Key? key}) : super(key: key);
 
+  final navigatorKey=GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       home: SlideDrawer(
         offsetFromRight: 180,
         backgroundColor: Colors.black87,
@@ -34,9 +37,12 @@ class AmarApp extends StatelessWidget {
           MenuItem('Home',
               icon: Icons.home,
               onTap: (){}),
-          MenuItem('Project',
+          MenuItem('Demo page',
               icon: Icons.mode,
-              onTap: (){}),
+              onTap: (){
+                navigatorKey.currentState!.push(
+                    MaterialPageRoute(builder: (context)=>DemoPage()));
+              }),
           MenuItem('Favourite',
               icon: Icons.label,
               onTap: (){}),
@@ -79,7 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: Column(
             children: [
-
+              ElevatedButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>DemoPage()));
+                  },
+                  child: Text("Go To Sign In")),
+            
               InkWell(
                 onTap: (){
                   setState(() {
