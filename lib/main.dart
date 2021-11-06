@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rafi/demo_page.dart';
+import 'package:rafi/list_page.dart';
 import 'package:rafi/log_in.dart';
 import 'package:slide_drawer/slide_drawer.dart';
 import 'package:rafi/second_page.dart';
@@ -41,7 +42,7 @@ class AmarApp extends StatelessWidget {
               icon: Icons.mode,
               onTap: (){
                 navigatorKey.currentState!.push(
-                    MaterialPageRoute(builder: (context)=>DemoPage()));
+                    MaterialPageRoute(builder: (context)=>ListPage()));
               }),
           MenuItem('Favourite',
               icon: Icons.label,
