@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("Go to next page"),
                   onPressed: (){
                 Navigator.push(context, MaterialPageRoute
-                  (builder: (context)=>Login()));
+                  (builder: (context)=>LogIn()));
               }),
               Padding(
                 padding: const EdgeInsets.all(18.0),
